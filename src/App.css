@@ -1,0 +1,177 @@
+.App {
+  font-family: 'Lucida Grande', helvetica, arial, verdana, sans-serif;
+  background-color: #40640c;
+  min-height: 100vh;
+  --wiersze: 6;
+  --kolumny: 9;
+  --tile-size: 60px;
+}
+
+@media (min-device-height: 701px) {
+  .App {
+    --tile-size: 120px;
+  }
+  .formularz {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    color: white;
+    gap: 100px;
+  }
+}
+
+@media (max-device-height: 700px), (orientation: portrait) {
+  .formularz {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    color: white;
+    gap: 30px;
+  }
+}
+
+header {
+  margin-bottom: 25px;
+  padding-top: 15px;
+  text-align: center;
+  font-size: x-large;
+  font-weight: bold;
+}
+
+header > * {
+  vertical-align: middle;
+}
+
+#odstep {
+  margin-left: 150px;
+}
+
+#gracz1 {
+  color: #ff6060;
+  border: 5px none #ff6060;
+  padding: 10px 10px 10px 10px;
+}
+
+#gracz1.active-player {
+  border-style: outset;
+}
+
+#wynik1, #wynik2 {
+  font-size: xx-large;
+  color: beige;
+  width: 80px;
+  height: 40px;
+  margin: 0px 15px 0px 15px;
+  display: inline-block;
+}
+
+#gracz2 {
+  color: yellow;
+  border: 5px none yellow;
+  padding: 10px 10px 10px 10px;
+}
+
+#gracz2.active-player {
+  border-style: outset;
+}
+
+#gra {
+  margin-top: 60px;
+  display: grid;
+  grid-template-columns: repeat(var(--kolumny), var(--tile-size));
+  grid-template-rows: repeat(var(--wiersze), var(--tile-size));
+  gap: 10px;
+  width: max-content;
+  margin: 0 auto;
+  position: relative;
+}
+
+#gra > img {
+  width: var(--tile-size);
+  height: var(--tile-size);
+}
+
+.modal-window {
+  font-size: xx-large;
+  font-weight: bold;
+  align-self: center;
+  justify-self: center;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  width: 400px;
+  height: 250px;
+  background-color: #ffebcd;
+  color: #0000ff;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.button-ok {
+  width: 150px;
+  height: 50px;
+  border: none;
+  border-radius: 20%;
+  background-color: greenyellow;
+  color: darkgreen;
+  font-size: large;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-self: center;
+  transition: background-color 0.5s ease;
+  cursor: pointer;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+
+.button-ok:hover {
+  background-color: limegreen;
+}
+
+#ekran-powitalny {
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.formularz > div {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 100px;
+}
+
+.formularz * {
+  color: white;
+}
+
+.formularz input[type="text"],
+.formularz input[type="range"] {
+  color: black;
+}
+
+.formularz img {
+  vertical-align: text-top;
+}
+
+.formularz label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.formularz legend {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+#procent {
+  margin-left: 10px;
+}
