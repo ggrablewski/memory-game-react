@@ -12,7 +12,7 @@ function Card({ card, isFlipped, isMatched, coverImage, onCardClick }) {
       return '';
     }
     if (isFlipped) {
-      return `/inside_${card.value}.png`;
+      return `${process.env.PUBLIC_URL}/inside_${card.value}.png`;
     }
     return coverImage;
   };

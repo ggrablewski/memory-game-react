@@ -37,7 +37,7 @@ function App() {
   };
 
   return (
-    <div className="App" style={{ backgroundImage: 'url(/dark_green_1.jpg)' }}>
+    <div className="App" style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/dark_green_1.jpg)` }}>
       <Header
         playerNames={playerNames}
         scores={scores}

@@ -42,11 +42,11 @@ function GameBoard({ settings, currentPlayer, playerNames, scores, onIncrementSc
   const currentFlippedCards = useRef([]);
 
   const audioRefs = useRef({
-    start: new Audio('/start.mp3'),
-    uncover: new Audio('/bounce_1.mp3'),
-    wrong: new Audio('/bounce_2.mp3'),
-    correct: new Audio('/dog.mp3'),
-    cheers: new Audio('/cheers.mp3')
+    start: new Audio(`${process.env.PUBLIC_URL}/start.mp3`),
+    uncover: new Audio(`${process.env.PUBLIC_URL}/bounce_1.mp3`),
+    wrong: new Audio(`${process.env.PUBLIC_URL}/bounce_2.mp3`),
+    correct: new Audio(`${process.env.PUBLIC_URL}/dog.mp3`),
+    cheers: new Audio(`${process.env.PUBLIC_URL}/cheers.mp3`)
   });
 
   const boardSize = ROZMIARY[settings.boardSize];
@@ -294,7 +294,7 @@ function GameBoard({ settings, currentPlayer, playerNames, scores, onIncrementSc
     }
   }, [isComputerTurn, isClickable, flippedCards.length, cards, memory, possibleMoves, handleCardClick]);
 
-  const coverImage = settings.coverColor === 'red' ? '/cover_red.png' : '/cover_blue.png';
+  const coverImage = settings.coverColor === 'red' ? `${process.env.PUBLIC_URL}/cover_red.png` : `${process.env.PUBLIC_URL}/cover_blue.png`;
 
   if (!gameReady) {
     return <div style={{ height: '100vh' }}></div>;
