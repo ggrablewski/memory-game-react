@@ -129,13 +129,13 @@ function GameBoard({ settings, currentPlayer, playerNames, scores, onIncrementSc
     return settings.withComputer && currentPlayer === 2;
   }, [settings.withComputer, currentPlayer]);
 
-  const endGame = useCallback(() => {
+  const endGame = useCallback((finalScores = scores) => {
     audioRefs.current.cheers.play();
     let message;
-    if (scores.player1 === scores.player2) {
+    if (finalScores.player1 === finalScores.player2) {
       message = 'REMIS !!!';
     } else {
-      const winner = scores.player1 > scores.player2 ? playerNames.player1 : playerNames.player2;
+      const winner = finalScores.player1 > finalScores.player2 ? playerNames.player1 : playerNames.player2;
       const koncowka = ['a', 'A'].includes(winner[winner.length - 1]) ? 'a' : '';
       message = `Wygrał${koncowka}\n${winner}`;
     }
@@ -220,7 +220,11 @@ function GameBoard({ settings, currentPlayer, playerNames, scores, onIncrementSc
           }
 
           if (newRemainingPairs === 0) {
-            endGame();
+            const updatedScores = {
+              ...scores,
+              [`player${currentPlayer}`]: scores[`player${currentPlayer}`] + 1
+            };
+            endGame(updatedScores);
           } else {
             setIsClickable(true);
           }

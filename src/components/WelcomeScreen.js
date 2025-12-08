@@ -83,7 +83,7 @@ function WelcomeScreen({ onStartGame, previousSettings }) {
               checked={boardSize === '4'}
               onChange={(e) => setBoardSize(e.target.value)}
             />
-            4×3 <img src="4x3_transparent.png" width="40px" height="30px" alt="4x3"/>
+            4×3 <img src={`${process.env.PUBLIC_URL}/4x3_transparent.png`} width="40px" height="30px" alt="4x3"/>
           </label>
           <label>
             <input
@@ -93,7 +93,7 @@ function WelcomeScreen({ onStartGame, previousSettings }) {
               checked={boardSize === '6'}
               onChange={(e) => setBoardSize(e.target.value)}
             />
-            6×5 <img src="6x5_transparent.png" width="60px" height="50px" alt="6x5"/>
+            6×5 <img src={`${process.env.PUBLIC_URL}/6x5_transparent.png`} width="60px" height="50px" alt="6x5"/>
           </label>
           <label>
             <input
@@ -103,7 +103,7 @@ function WelcomeScreen({ onStartGame, previousSettings }) {
               checked={boardSize === '9'}
               onChange={(e) => setBoardSize(e.target.value)}
             />
-            9×6 <img src="9x6_transparent.png" width="90px" height="60px" alt="9x6"/>
+            9×6 <img src={`${process.env.PUBLIC_URL}/9x6_transparent.png`} width="90px" height="60px" alt="9x6"/>
           </label>
           <label>
             <input
@@ -113,7 +113,7 @@ function WelcomeScreen({ onStartGame, previousSettings }) {
               checked={boardSize === '10'}
               onChange={(e) => setBoardSize(e.target.value)}
             />
-            10×8 <img src="10x8_transparent.png" width="100px" height="80px" alt="10x8"/>
+            10×8 <img src={`${process.env.PUBLIC_URL}/10x8_transparent.png`} width="100px" height="80px" alt="10x8"/>
           </label>
         </div>
         <div>
@@ -126,7 +126,7 @@ function WelcomeScreen({ onStartGame, previousSettings }) {
               checked={coverColor === 'red'}
               onChange={(e) => setCoverColor(e.target.value)}
             />
-            <img src="cover_red.png" width="80px" height="80px" alt="red cover"/>
+            <img src={`${process.env.PUBLIC_URL}/cover_red.png`} width="80px" height="80px" alt="red cover"/>
           </label>
           <label>
             <input
@@ -136,7 +136,7 @@ function WelcomeScreen({ onStartGame, previousSettings }) {
               checked={coverColor === 'blue'}
               onChange={(e) => setCoverColor(e.target.value)}
             />
-            <img src="cover_blue.png" width="80px" height="80px" alt="blue cover"/>
+            <img src={`${process.env.PUBLIC_URL}/cover_blue.png`} width="80px" height="80px" alt="blue cover"/>
           </label>
         </div>
         <div>
