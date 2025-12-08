@@ -5,16 +5,16 @@ const KOMPUTER_NAME_LIST = [
   "Pułkownik UB", "Brutus", "Cezar", "Reżyser kina akcji", "Waldek"
 ];
 
-function WelcomeScreen({ onStartGame }) {
-  const [player1Name, setPlayer1Name] = useState('Ignaś');
-  const [player2Name, setPlayer2Name] = useState('Tato');
-  const [boardSize, setBoardSize] = useState('4');
-  const [coverColor, setCoverColor] = useState('red');
-  const [withComputer, setWithComputer] = useState(false);
-  const [difficulty, setDifficulty] = useState(50);
-  const [showIntro, setShowIntro] = useState(true);
-  const [humanName, setHumanName] = useState('Tato');
-  const [computerName, setComputerName] = useState('Cwaniak');
+function WelcomeScreen({ onStartGame, previousSettings }) {
+  const [player1Name, setPlayer1Name] = useState(previousSettings?.player1Name || 'Ignaś');
+  const [player2Name, setPlayer2Name] = useState(previousSettings?.player2Name || 'Tato');
+  const [boardSize, setBoardSize] = useState(previousSettings?.boardSize || '4');
+  const [coverColor, setCoverColor] = useState(previousSettings?.coverColor || 'red');
+  const [withComputer, setWithComputer] = useState(previousSettings?.withComputer || false);
+  const [difficulty, setDifficulty] = useState(previousSettings?.difficulty || 50);
+  const [showIntro, setShowIntro] = useState(previousSettings?.showIntro !== undefined ? previousSettings.showIntro : true);
+  const [humanName, setHumanName] = useState(previousSettings?.withComputer ? previousSettings.player1Name : previousSettings?.player2Name || 'Tato');
+  const [computerName, setComputerName] = useState(KOMPUTER_NAME_LIST[Math.floor(Math.min(previousSettings?.difficulty || 50, 99) / 10)]);
 
   useEffect(() => {
     const newComputerName = KOMPUTER_NAME_LIST[Math.floor(Math.min(difficulty, 99) / 10)];

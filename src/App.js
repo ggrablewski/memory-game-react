@@ -44,7 +44,7 @@ function App() {
         currentPlayer={currentPlayer}
       />
       {!gameStarted ? (
-        <WelcomeScreen onStartGame={startGame} />
+        <WelcomeScreen onStartGame={startGame} previousSettings={gameSettings} />
       ) : (
         <GameBoard
           settings={gameSettings}
